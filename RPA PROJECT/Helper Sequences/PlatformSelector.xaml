@@ -1,0 +1,297 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PlatformSelector" this:PlatformSelector.in_isNoneSelected="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strSite" Type="InArgument(x:String)" />
+    <x:Property Name="in_selected_option" Type="InArgument(x:String)" />
+    <x:Property Name="in_strBrandResult" Type="InArgument(x:String)" />
+    <x:Property Name="in_strAttributeResult" Type="InArgument(x:String)" />
+    <x:Property Name="in_strPriceResult" Type="InArgument(x:String)" />
+    <x:Property Name="io_urlWebsite" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_isNoneSelected" Type="InArgument(x:Boolean)" />
+    <x:Property Name="out_dtResult" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>824,3443.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>PlatformSelector_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="In this workflow, we ask the user to select the website they want to search.&#xA;Bu çalışma alanında kullanıcıya arama yapmak istediği websiteyi soruyoruz" DisplayName="PlatformSelector" sap:VirtualizedContainerService.HintSize="680,3378.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strSiteResult" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="isUserSelected" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <DoWhile sap2010:Annotation.AnnotationText="If any of the options are not selected, a message dialog is shown to a user to warn them to select one choise. I do it until user selects one&#xA;Eğer hiçbir seçenek seçilmediyse, kullanıcıyı uyarmak için bir mesaj diyaloğu ekrana getirilir. Kullanıcı bir seçenek seçene kadar bu durum tekrarlanır" DisplayName="Do While for website selection" sap:VirtualizedContainerService.HintSize="617.6,1216" sap2010:WorkflowViewState.IdRef="DoWhile_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <DoWhile.Condition>[isUserSelected = False]</DoWhile.Condition>
+      <Sequence sap:VirtualizedContainerService.HintSize="572.8,976.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="510.4,295.2" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Lütfen arama yapmak istediğiniz siteyi seçiniz." OptionsString="[in_strSite]" Title="Site Seçimi">
+          <ui:InputDialog.Result>
+            <OutArgument x:TypeArguments="x:String">[strSiteResult]</OutArgument>
+          </ui:InputDialog.Result>
+        </ui:InputDialog>
+        <If Condition="[String.IsNullOrEmpty(strSiteResult) = false]" DisplayName="If - check if user selects an option" sap:VirtualizedContainerService.HintSize="510.4,529.6" sap2010:WorkflowViewState.IdRef="If_5">
+          <If.Then>
+            <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[isUserSelected]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <Sequence sap:VirtualizedContainerService.HintSize="376.8,175.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Lütfen bir seçeneği seçin&quot;]" />
+            </Sequence>
+          </If.Else>
+        </If>
+      </Sequence>
+    </DoWhile>
+    <If sap2010:Annotation.AnnotationText="depends on website selection, the correct process is invoked (Hepsi Burada/ Trendyol)&#xA;these sequences return Url if any product has found, otherwise it returns &quot;Ürün Bulunamadı&quot; text to refer zero product is found.&#xA;seçilen websitesine göre ilgili işlem tetiklenir (Hepsi Burada / Trendyol) &#xA;gönderilen seçeneklere uygun bir ürün bulunursa oluşturulan urlyi döndürür. eğer aranan kriterlere göre ürün bulunamazsa &quot;Ürün Bulunamadı&quot; metnini döndürür. Bu ifade hiçbir ürünün bulunamamasını temsil eder." Condition="[strSiteResult = &quot;Hepsi Burada&quot;]" DisplayName="If - website selection control" sap:VirtualizedContainerService.HintSize="617.6,1705.6" sap2010:WorkflowViewState.IdRef="If_8">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="453.6,832" sap2010:WorkflowViewState.IdRef="Sequence_18">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[in_isNoneSelected = false]" DisplayName="If - check if any product is selected" sap:VirtualizedContainerService.HintSize="410.4,512.8" sap2010:WorkflowViewState.IdRef="If_11">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="376.8,247.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Get Url of searched Hepsi Burada page.&#xA;arama yapılan hepsi burada sayfasının urlsini al" DisplayName="PlatformProductUrlGenerator\HepsiburadaProductUrlGenerator.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="PlatformProductUrlGenerator\HepsiburadaProductUrlGenerator.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_selected_option">[in_selected_option]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strBrandResult">[in_strBrandResult]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strAttributeResult">[in_strAttributeResult]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strPriceResult">[in_strPriceResult]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_urlHepsiburada">[io_urlWebsite]</OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="300,82.4" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="get data and add them to a queue and return generated data table&#xA;alınan verilere queue (kuyruk) içine atar ve yeni bir datatable oluşturup döndürür." DisplayName="GetDataFromPlatforms\GetDataFromHepsiburada.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="410.4,189.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="GetDataFromPlatforms\GetDataFromHepsiburada.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strUrlHb">[io_urlWebsite]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strProductName">[in_selected_option]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ResultDT">[out_dtResult]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strBrandName">[in_strBrandResult]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_ifNoneSelected">[in_isNoneSelected]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="540,566.4" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="depends on the selected product, related sequence is invoked. it returns an Url of search&#xA;seçilen ürüne göre ilgili sekans tetiklenir. arama sonucunun urlsini döndürür." DisplayName="Switch - check product selection" Expression="[in_selected_option]" sap:VirtualizedContainerService.HintSize="496.8,247.2" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="Telefon" sap2010:Annotation.AnnotationText="all selector processes about phone selection happen in this sequence&#xA;telefon seçeneği ile iligili tüm selektör işlemleri bu sekansta gerçekleşir" DisplayName="TrendyolProductUrlGeneratorPhone.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="333.6,189.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="PlatformProductUrlGenerator\TrendyolProductUrlGeneratorPhone.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strPrice">[in_strPriceResult]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strAttribute">[in_strAttributeResult]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBrand">[in_strBrandResult]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_urlTrendyol">[io_urlWebsite]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="Bilgisayar" sap2010:Annotation.AnnotationText="all selector processes about computer selection happen in this sequence&#xA;bilgisayar seçeneği ile iligili tüm selektör işlemleri bu sekansta gerçekleşir" DisplayName="TrendyolProductUrlGeneratorComputer.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="333.6,189.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="PlatformProductUrlGenerator\TrendyolProductUrlGeneratorComputer.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strPrice">[in_strPriceResult]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strAttribute">[in_strAttributeResult]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBrand">[in_strBrandResult]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_urlTrendyol">[io_urlWebsite]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="Televizyon" sap2010:Annotation.AnnotationText="all selector processes about television selection happen in this sequence&#xA;televizyon seçeneği ile iligili tüm selektör işlemleri bu sekansta gerçekleşir" DisplayName="TrendyolProductUrlGeneratorTelevision.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="333.6,189.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="PlatformProductUrlGenerator\TrendyolProductUrlGeneratorTelevision.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strPrice">[in_strPriceResult]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strAttribute">[in_strAttributeResult]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strBrand">[in_strBrandResult]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_urlTrendyol">[io_urlWebsite]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+          </Switch>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="get data and add them to a queue and return generated data table&#xA;alınan verilere queue(kuyruk) içine atar ve yeni bir datatable oluşturup döndürür." DisplayName="GetDataFromPlatforms\GetDataFromTrendyol.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="496.8,189.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="GetDataFromPlatforms\GetDataFromTrendyol.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strUrlTy">[io_urlWebsite]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strProductName">[in_selected_option]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ResultDT">[out_dtResult]</OutArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_ifNoneSelected">[in_isNoneSelected]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Else>
+    </If>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="617.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[&quot;url: &quot; + io_urlWebsite]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="617.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[&quot;Seçim: &quot; + in_strBrandResult + &quot;-&quot; +in_strAttributeResult + &quot;-&quot; +in_strPriceResult + &quot;-&quot; +strSiteResult]" />
+  </Sequence>
+</Activity>
